@@ -19,6 +19,20 @@ npm i anilibriajs-api@latest
 npm i axios // В случае если не работает модуль
 ```
 Пример использования:
-```
-soon
+```javascript
+const api = require("./node_modules/anilibriajs-api")
+
+const anilibriajs = new api.anilibria({})
+
+async function testAnyMethods() {
+    // random
+    let s = await anilibriajs.title.random({})
+    console.log(`Random anime: \nid: ${s.id}\nname: [ru: ${s.names.ru}; en: ${s.names.en}]\nStatus: ${s.status.string}\nEpisodes: ${s.type.episodes}\n`);
+
+    // torrents stats for selected user
+    s = await anilibriajs.torrent.seed_stats({users: "demonust"})
+    console.log(s)
+}
+
+testAnyMethods()
 ```

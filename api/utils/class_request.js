@@ -47,7 +47,6 @@ class request {
         }
 
         this.args = prompt; 
-        console.log(this.args)
     }
 
     async _getNameOfArgs(obj){

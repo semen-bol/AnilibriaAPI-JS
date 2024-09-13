@@ -6,7 +6,7 @@ const Request = require("../utils/class_request.js").Request
 // lol
 // ***********
 
-class api {
+class anilibria {
     #_token; #_apiUrl; #_base_params
     constructor({token, //v = 3 | currently is not supported old versions  |  i mne kstati pizdec kak lenb
         url = "https://api.anilibria.tv/"}) {
@@ -38,7 +38,7 @@ class api {
                 })
             return await s.dealRequest()
         },
-        list: async (id_list, code_list, torrent_id_list, filter, remove, include, description_type, playlist_type, page, items_per_page) => {
+        list: async ({id_list, code_list, torrent_id_list, filter, remove, include, description_type, playlist_type, page, items_per_page}) => {
             let s = new Request({
                 url: this.#_apiUrl, 
                 method: "title/list",
@@ -46,7 +46,7 @@ class api {
                 })
             return await s.dealRequest()
         },
-        updates: async (filter, remove, include, limit, since, description_type, playlist_type, after, page, items_per_page) => {
+        updates: async ({filter, remove, include, limit, since, description_type, playlist_type, after, page, items_per_page}) => {
             let s = new Request({
                 url: this.#_apiUrl, 
                 method: "title/updates",
@@ -54,7 +54,7 @@ class api {
                 })
             return await s.dealRequest()
         },
-        changes: async (filter, remove, include, limit, since, description_type, playlist_type, after, page, items_per_page) => {
+        changes: async ({filter, remove, include, limit, since, description_type, playlist_type, after, page, items_per_page}) => {
             let s = new Request({
                 url: this.#_apiUrl, 
                 method: "title/changes",
@@ -62,7 +62,7 @@ class api {
                 })
             return await s.dealRequest()
         },
-        schedule: async (filter, remove, include, days, description_type, playlist_type) => {
+        schedule: async ({filter, remove, include, days, description_type, playlist_type}) => {
             let s = new Request({
                 url: this.#_apiUrl, 
                 method: "title/schedule",
@@ -70,7 +70,7 @@ class api {
                 })
             return await s.dealRequest()
         },
-        random: async (filter, remove, include, description_type, playlist_type) => {
+        random: async ({filter, remove, include, description_type, playlist_type}) => {
             let s = new Request({
                 url: this.#_apiUrl, 
                 method: "title/random",
@@ -78,7 +78,7 @@ class api {
                 })
             return await s.dealRequest()
         },
-        search: async (search, year, type, season_code, genres, team, voice, translator, editing, decor, timing, filter, remove, include, description_type, playlist_type, limit, after, order_by, sort_direction, page, items_per_page) => {
+        search: async ({search, year, type, season_code, genres, team, voice, translator, editing, decor, timing, filter, remove, include, description_type, playlist_type, limit, after, order_by, sort_direction, page, items_per_page}) => {
             let s = new Request({
                 url: this.#_apiUrl, 
                 method: "title/search",
@@ -86,7 +86,7 @@ class api {
                 })
             return await s.dealRequest()
         },
-        search_advanced: async (query, simple_query, filter, remove, include, description_type, playlist_type, limit, after, order_by, sort_direction, page, items_per_page) => {
+        search_advanced: async ({query, simple_query, filter, remove, include, description_type, playlist_type, limit, after, order_by, sort_direction, page, items_per_page}) => {
             let s = new Request({
                 url: this.#_apiUrl, 
                 method: "title/search/advanced",
@@ -94,7 +94,7 @@ class api {
                 })
             return await s.dealRequest()
         },
-        franchises: async (id, filter, remove) => {
+        franchises: async ({id, filter, remove}) => {
             let s = new Request({
                 url: this.#_apiUrl, 
                 method: "title/franchises",
@@ -105,7 +105,7 @@ class api {
     }
 
     franchise = {
-        list: async (filter, remove, limit, after, page, items_per_page) => {
+        list: async ({filter, remove, limit, after, page, items_per_page}) => {
             let s = new Request({
                 url: this.#_apiUrl, 
                 method: "franchise/list",
@@ -116,7 +116,7 @@ class api {
     }
 
     torrent = {
-        seed_stats: async (users, filter, remove, limit, after, sort_by, order, page, items_per_page) => {
+        seed_stats: async ({users, filter, remove, limit, after, sort_by, order, page, items_per_page}) => {
             let s = new Request({
                 url: this.#_apiUrl, 
                 method: "torrent/seed_stats",
@@ -124,7 +124,7 @@ class api {
                 })
             return await s.dealRequest()
         },
-        rss: async (rss_type, session, limit, since, after) => {
+        rss: async ({rss_type, session, limit, since, after}) => {
             let s = new Request({
                 url: this.#_apiUrl, 
                 method: "torrent/rss",
@@ -191,4 +191,4 @@ class api {
     }
 }
 
-module.exports = { api, request }
+module.exports = { anilibria, request }

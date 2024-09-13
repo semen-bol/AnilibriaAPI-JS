@@ -1,6 +1,21 @@
-//soon
 //start
-//
+
+const api = require("anilibriajs-api")
+
+const anilibriajs = new api.anilibria()
+
+async function testAnyMethods() {
+    // random
+    let s = await anilibriajs.title.random()
+    console.log(`Random anime: \nid: ${s.id}\nname: [ru: ${s.names.ru}; en: ${s.names.en}]\nStatus: ${s.status.string}\nEpisodes: ${s.type.episodes}\n`);
+
+    // torrents stats
+    s = await anilibriajs.torrent.seed_stats()
+    console.log(s)
+}
+
+testAnyMethods()
+
 // End
 //________00000000000000______00000000000000________ 
 //______000000000000000000__0000000000000000000_____ 

@@ -8,7 +8,7 @@
 const axios = require("axios")
 
 headers = {
-    timeout: 1000 * 2,
+    timeout: 1000 * 5,
     "Content-Type": "application/json",
     validateStatus: status => (status >= 200 && status < 500)
 }
