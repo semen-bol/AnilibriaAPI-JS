@@ -1,0 +1,26 @@
+{
+  "name": "anilibriajs-api",
+  "version": "1.0.0",
+  "description": "Оболочка для API Anilibria, который позволяет установить и почти ничего не делать, кроме авторизации и вызова методов с параметрами. Модуль поддерживает автоисправление и подсказки в таких приложениях как VS Code и т.п.",
+  "main": "./api/src/api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "api",
+    "javascript",
+    "anilibria",
+    "anilib",
+    "js"
+  ],
+  "author": "semen-bol",
+  "engines": {
+    "node": ">= 18.14.0",
+    "npm": ">= 9.3.1"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.5"
+  },
+  "devDependencies": {}
+}
