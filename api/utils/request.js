@@ -47,7 +47,7 @@ async function postReq (url, method, body){
     let data = request.data
 
     if(request.status == 200){
-        return data.response
+        return data
     } else if(data.error){
         return data.error
     } else {
