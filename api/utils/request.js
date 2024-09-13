@@ -13,19 +13,7 @@ headers = {
     validateStatus: status => (status >= 200 && status < 500)
 }
 
-// this a test req, may be need in tests....
-async function testReq(url) {
-    let request = await axios.get(url, headers)
-    let data = request.data
-
-    if(request.status == 200){
-        return data
-    } else if(data.error){
-        return data.error
-    } else {
-        return data
-    }
-}
+// f to testReq  :(
 
 async function getReq (url, method, params){ 
     let newUrl = url + method + params
@@ -42,22 +30,10 @@ async function getReq (url, method, params){
     }
 }
 
-async function postReq (url, method, body){
-    let newUrl = url + method
-
-    let request = await axios.post(newUrl, body, headers)
-    let data = request.data
-
-    if(request.status == 200){
-        return data
-    } else if(data.error){
-        return data.error
-    } else {
-        return data
-    }
-}
+// f to postReq
 
 module.exports = { 
-    testReq: testReq,
+    //testReq: testReq, dont touch me!
     getReq: getReq, 
-    postReq: postReq }
+    //postReq: postReq dont touch me!
+}
