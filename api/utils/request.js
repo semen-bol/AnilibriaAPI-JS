@@ -1,12 +1,14 @@
 /*
 / 100% javascript. Made with Love 
 / Axios module :D
+/ u can grab this module for your targets...
 / 100% javascript. Made with Love 
 */
 
 const axios = require("axios")
 
 headers = {
+    timeout: 1000 * 2,
     "Content-Type": "application/json",
     validateStatus: status => (status >= 200 && status < 500)
 }
