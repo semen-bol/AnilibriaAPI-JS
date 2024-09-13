@@ -16,8 +16,8 @@ async function testReq(url) {
     let request = await axios.get(url, headers)
     let data = request.data
 
-    if(data.response){
-        return data.response
+    if(request.status == 200){
+        return data
     } else if(data.error){
         return data.error
     } else {
@@ -32,7 +32,7 @@ async function getReq (url, method, params){
     let data = request.data
 
     if(request.status == 200){
-        return data.response
+        return data
     } else if(data.error){
         return data.error
     } else {
