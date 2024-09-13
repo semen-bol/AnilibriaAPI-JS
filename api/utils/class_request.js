@@ -17,33 +17,30 @@ class request {
 
     async _dealRequest(args, method, url, typeOfRequest){
         if(typeOfRequest == "GET"){
-            await this.validateArgs()
-
-            let s = await req.getReq(url, method, args)
-
-            return s
+            await this._validateArgs() // validate args for prompt ( "?code=1&title=1" )
+            return await req.getReq(url, method, args)
         } else {
             return "Unknown method of type request!"
         }
     }
 
-    async validateArgs(){
-        let first = await this.getNameOfArgs(this.args)
-        let second = await this.getValuesOfArgs(this.args)
-
+    async _validateArgs(){
+        let first = await this._getNameOfArgs(this.args)
+        let second = await this._getValuesOfArgs(this.args)
         let prompt = ``
 
         for(let i = 0; i < first.length; i++){
             prompt += `&${first[i]}=${second[first[i]]}`
         }
-        this.args = prompt
+
+        this.args = prompt; return
     }
 
-    async getNameOfArgs(obj){
+    async _getNameOfArgs(obj){
         return Object.keys(obj).filter(key => obj[key] !== undefined);
     }
 
-    async getValuesOfArgs(obj){
+    async _getValuesOfArgs(obj){
         return Object.fromEntries(
             Object.entries(obj).filter(([_, value]) => value !== undefined)
         );
