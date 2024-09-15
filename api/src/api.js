@@ -17,7 +17,7 @@ class anilibria {
         this.#_apiUrl = url + `v${this.version}/`;
         this.#_base_params = ``
     } 
-    dev_utils = {
+    _dev_utils = {
         test: async ({id, code, torrent_id, filter, remove, include, description_type, playlist_type}) => {
             let s = new Request({
                 url: this.#_apiUrl, 
